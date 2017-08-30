@@ -1,0 +1,24 @@
+<h1>All User Details</h1>
+
+<div class="light-container">
+	<table class="strip-table warehouses-list sortable">
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+		</tr>
+		<% if @user_detail.present? %>
+		<% @user_detail.each { |user| %>
+		<tr>
+			<td><%= user.try(:name)%></td>
+			<td class="text-center"><%= user.try(:address) %></td>
+		</tr>
+		<% } %>
+		<% else %>
+		<tr>
+			<td colspan="8">
+				<center>No warehouses</center>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
