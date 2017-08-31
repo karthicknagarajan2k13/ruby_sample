@@ -1,3 +1,5 @@
+
+<% if current_user.present? %>
 <h1>All User Details</h1>
 
 <div class="light-container">
@@ -5,12 +7,15 @@
 		<tr>
 			<th>Name</th>
 			<th>Address</th>
+			<th>Action</th>
 		</tr>
-		<% if @user_detail.present? %>
-		<% @user_detail.each { |user| %>
+		<% if @user_details.present? %>
+		<% @user_details.each { |user| %>
 		<tr>
 			<td><%= user.try(:name)%></td>
 			<td class="text-center"><%= user.try(:address) %></td>
+			<td><%= link_to 'edit', home_edit_path(user_detail_id: user.try(:id)) %></td>
+			<td><%= link_to 'show', home_show_path(user_detail_id: user.try(:id)) %></td>
 		</tr>
 		<% } %>
 		<% else %>
@@ -22,3 +27,6 @@
 		<% end %>
 	</table>
 </div>
+
+<%= link_to 'New', home_new_path%>
+<% end %>

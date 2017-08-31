@@ -1,0 +1,6 @@
+<%= form_for(:user_detail,:url => home_update_path, method: :put) do |f|%>
+	<p>Name: <%= f.text_field :name, required: :true %></p>
+	<%= f.hidden_field :id %>
+	<p>Address: <%= f.text_field :address, required: :true %></p>
+	<%= f.submit%>
+<% end %>
